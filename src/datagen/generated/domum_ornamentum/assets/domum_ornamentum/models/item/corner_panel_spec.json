@@ -1,18 +1,9 @@
 {
   "parent": "minecraft:block/thin_block",
-  "display": {},
   "overrides": [
     {
-      "model": "domum_ornamentum:block/corner_panel/corner_panel_inner_spec",
-      "predicate": {
-        "domum_ornamentum:corner_panel_type": 0.0
-      }
-    },
-    {
-      "model": "domum_ornamentum:block/corner_panel/corner_panel_outer_spec",
-      "predicate": {
-        "domum_ornamentum:corner_panel_type": 1.0
-      }
+      "model": "domum_ornamentum:block/corner_panel/corner_panel_spec",
+      "predicate": {}
     }
   ]
 }

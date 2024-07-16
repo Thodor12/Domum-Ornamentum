@@ -7,7 +7,6 @@ public class Constants
     public static final String MATERIALLY_TEXTURED_MODEL_LOADER = "materially_textured";
 
     public static final String TRAPDOOR_MODEL_OVERRIDE     = MOD_ID + ":trapdoor_type";
-    public static final String CORNER_PANEL_MODEL_OVERRIDE = MOD_ID + ":corner_panel_type";
     public static final String DOOR_MODEL_OVERRIDE         = MOD_ID + ":door_type";
     public static final String POST_MODEL_OVERRIDE         = MOD_ID + ":post_type";
 

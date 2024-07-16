@@ -1,7 +1,6 @@
 package com.ldtteam.domumornamentum.datagen.panel;
 
 import com.ldtteam.data.LanguageProvider;
-import com.ldtteam.domumornamentum.block.types.CornerPanelType;
 import com.ldtteam.domumornamentum.util.Constants;
 
 public class CornerPanelLangEntryProvider implements LanguageProvider.SubProvider
@@ -11,10 +10,5 @@ public class CornerPanelLangEntryProvider implements LanguageProvider.SubProvide
         acceptor.add(Constants.MOD_ID + ".corner.panel.name.format", "%s Corner Panel");
         acceptor.add(Constants.MOD_ID + ".corner.panel.type.format", "Variant: %s");
         acceptor.add(Constants.MOD_ID + ".corner.panel.block.format", "Material: %s");
-
-        for (final CornerPanelType value : CornerPanelType.values())
-        {
-            acceptor.add(Constants.MOD_ID + ".corner.panel.type.name." + value.getTranslationKeySuffix(), value.getDefaultEnglishTranslation());
-        }
     }
 }

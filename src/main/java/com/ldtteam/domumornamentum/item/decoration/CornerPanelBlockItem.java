@@ -2,7 +2,6 @@ package com.ldtteam.domumornamentum.item.decoration;
 
 import com.ldtteam.domumornamentum.block.IMateriallyTexturedBlockComponent;
 import com.ldtteam.domumornamentum.block.decorative.CornerPanelBlock;
-import com.ldtteam.domumornamentum.block.types.CornerPanelType;
 import com.ldtteam.domumornamentum.client.model.data.MaterialTextureData;
 import com.ldtteam.domumornamentum.item.interfaces.IDoItem;
 import com.ldtteam.domumornamentum.util.BlockUtils;
@@ -49,29 +48,7 @@ public class CornerPanelBlockItem extends BlockItem implements IDoItem
     {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
-        CornerPanelType cornerPanelType;
-        try
-        {
-            if (stack.getOrCreateTag().contains("type"))
-            {
-                cornerPanelType = CornerPanelType.valueOf(stack.getOrCreateTag().getString("type").toUpperCase());
-            }
-            else
-            {
-                cornerPanelType = CornerPanelType.INNER;
-            }
-        }
-        catch (Exception ex)
-        {
-            cornerPanelType = CornerPanelType.INNER;
-        }
-
         tooltip.add(Component.translatable(Constants.MOD_ID + ".origin.tooltip"));
-        tooltip.add(Component.literal(""));
-        tooltip.add(Component.translatable(
-          Constants.MOD_ID + ".corner.panel.type.format",
-          Component.translatable(Constants.MOD_ID + ".corner.panel.type.name." + cornerPanelType.getTranslationKeySuffix())
-        ));
 
         final CompoundTag dataNbt = stack.getOrCreateTagElement("textureData");
         MaterialTextureData textureData = MaterialTextureData.deserializeFromNBT(dataNbt);

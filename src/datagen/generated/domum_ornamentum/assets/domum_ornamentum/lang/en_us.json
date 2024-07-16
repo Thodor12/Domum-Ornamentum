@@ -47,8 +47,6 @@
   "domum_ornamentum.corner.panel.block.format": "Material: %s",
   "domum_ornamentum.corner.panel.name.format": "%s Corner Panel",
   "domum_ornamentum.corner.panel.type.format": "Variant: %s",
-  "domum_ornamentum.corner.panel.type.name.inner": "Inner",
-  "domum_ornamentum.corner.panel.type.name.outer": "Outer",
   "domum_ornamentum.dark_brick.name.format": "Dark %s Brick",
   "domum_ornamentum.dark_brick_stair.name.format": "Dark %s Brick Stair",
   "domum_ornamentum.desc.center": "Center %s",

@@ -2,298 +2,137 @@
   "multipart": [
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 90,
         "y": 270
       },
       "when": {
-        "type": "inner",
         "facing": "north",
         "shape": "upper"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "y": 180
       },
       "when": {
-        "type": "inner",
         "facing": "north",
         "shape": "center"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 270,
         "y": 270
       },
       "when": {
-        "type": "inner",
         "facing": "north",
         "shape": "lower"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "type": "outer",
-        "facing": "north",
-        "shape": "upper"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "type": "outer",
-        "facing": "north",
-        "shape": "center"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 270,
-        "y": 270
-      },
-      "when": {
-        "type": "outer",
-        "facing": "north",
-        "shape": "lower"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 90,
         "y": 90
       },
       "when": {
-        "type": "inner",
         "facing": "south",
         "shape": "upper"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true
       },
       "when": {
-        "type": "inner",
         "facing": "south",
         "shape": "center"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 270,
         "y": 90
       },
       "when": {
-        "type": "inner",
         "facing": "south",
         "shape": "lower"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 90,
-        "y": 90
-      },
-      "when": {
-        "type": "outer",
-        "facing": "south",
-        "shape": "upper"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true
-      },
-      "when": {
-        "type": "outer",
-        "facing": "south",
-        "shape": "center"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 270,
-        "y": 90
-      },
-      "when": {
-        "type": "outer",
-        "facing": "south",
-        "shape": "lower"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 90,
         "y": 180
       },
       "when": {
-        "type": "inner",
         "facing": "west",
         "shape": "upper"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "y": 90
       },
       "when": {
-        "type": "inner",
         "facing": "west",
         "shape": "center"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 270,
         "y": 180
       },
       "when": {
-        "type": "inner",
         "facing": "west",
         "shape": "lower"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 90,
-        "y": 180
-      },
-      "when": {
-        "type": "outer",
-        "facing": "west",
-        "shape": "upper"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "type": "outer",
-        "facing": "west",
-        "shape": "center"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 270,
-        "y": 180
-      },
-      "when": {
-        "type": "outer",
-        "facing": "west",
-        "shape": "lower"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 90
       },
       "when": {
-        "type": "inner",
         "facing": "east",
         "shape": "upper"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "y": 270
       },
       "when": {
-        "type": "inner",
         "facing": "east",
         "shape": "center"
       }
     },
     {
       "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_inner",
+        "model": "domum_ornamentum:block/corner_panel/corner_panel",
         "uvlock": true,
         "x": 270
       },
       "when": {
-        "type": "inner",
-        "facing": "east",
-        "shape": "lower"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "type": "outer",
-        "facing": "east",
-        "shape": "upper"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "type": "outer",
-        "facing": "east",
-        "shape": "center"
-      }
-    },
-    {
-      "apply": {
-        "model": "domum_ornamentum:block/corner_panel/corner_panel_outer",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "type": "outer",
         "facing": "east",
         "shape": "lower"
       }

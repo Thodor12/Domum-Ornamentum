@@ -9,7 +9,6 @@ import com.ldtteam.domumornamentum.block.IMateriallyTexturedBlock;
 import com.ldtteam.domumornamentum.block.IMateriallyTexturedBlockComponent;
 import com.ldtteam.domumornamentum.block.components.SimpleRetexturableComponent;
 import com.ldtteam.domumornamentum.block.types.CornerPanelShapeType;
-import com.ldtteam.domumornamentum.block.types.CornerPanelType;
 import com.ldtteam.domumornamentum.client.model.data.MaterialTextureData;
 import com.ldtteam.domumornamentum.entity.block.MateriallyTexturedBlockEntity;
 import com.ldtteam.domumornamentum.recipe.FinishedDORecipe;
@@ -54,7 +53,6 @@ import static net.minecraft.world.level.block.Blocks.OAK_PLANKS;
 
 public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock> implements IMateriallyTexturedBlock, ICachedItemGroupBlock, SimpleWaterloggedBlock, EntityBlock
 {
-    public static final EnumProperty<CornerPanelType>      TYPE        = EnumProperty.create("type", CornerPanelType.class);
     public static final EnumProperty<CornerPanelShapeType> SHAPE_TYPE  = EnumProperty.create("shape", CornerPanelShapeType.class);
     public static final BooleanProperty                    WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -71,23 +69,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     private static final VoxelShape FULL_SOUTH_AABB = Block.box(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
     private static final VoxelShape FULL_WEST_AABB  = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
 
-    private static final VoxelShape EDGE_LOWER_NORTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 3.0D);
-    private static final VoxelShape EDGE_LOWER_EAST_AABB  = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
-    private static final VoxelShape EDGE_LOWER_SOUTH_AABB = Block.box(0.0D, 0.0D, 13.0D, 16.0D, 3.0D, 16.0D);
-    private static final VoxelShape EDGE_LOWER_WEST_AABB  = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 3.0D, 16.0D);
-
-    private static final VoxelShape EDGE_CENTER_NORTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 3.0D);
-    private static final VoxelShape EDGE_CENTER_EAST_AABB  = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
-    private static final VoxelShape EDGE_CENTER_SOUTH_AABB = Block.box(13.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
-    private static final VoxelShape EDGE_CENTER_WEST_AABB  = Block.box(0.0D, 0.0D, 13.0D, 3.0D, 16.0D, 16.0D);
-
-    private static final VoxelShape EDGE_UPPER_NORTH_AABB = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 16.0D, 3.0D);
-    private static final VoxelShape EDGE_UPPER_EAST_AABB  = Block.box(13.0D, 13.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    private static final VoxelShape EDGE_UPPER_SOUTH_AABB = Block.box(0.0D, 13.0D, 13.0D, 16.0D, 16.0D, 16.0D);
-    private static final VoxelShape EDGE_UPPER_WEST_AABB  = Block.box(0.0D, 13.0D, 0.0D, 3.0D, 16.0D, 16.0D);
-
     private static final Map<CornerPanelShapeType, Map<Direction, VoxelShape>> innerModelShapes = new HashMap<>();
-    private static final Map<CornerPanelShapeType, Map<Direction, VoxelShape>> outerModelShapes = new HashMap<>();
     static
     {
         final Map<Direction, VoxelShape> lowerFullShapes = new HashMap<>();
@@ -110,27 +92,6 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
         upperFullShapes.put(Direction.SOUTH, Shapes.or(FULL_UP_AABB, FULL_SOUTH_AABB));
         upperFullShapes.put(Direction.WEST, Shapes.or(FULL_UP_AABB, FULL_WEST_AABB));
         innerModelShapes.put(CornerPanelShapeType.UPPER, upperFullShapes);
-
-        final Map<Direction, VoxelShape> lowerEdgeShapes = new HashMap<>();
-        lowerEdgeShapes.put(Direction.NORTH, EDGE_LOWER_NORTH_AABB);
-        lowerEdgeShapes.put(Direction.EAST, EDGE_LOWER_EAST_AABB);
-        lowerEdgeShapes.put(Direction.SOUTH, EDGE_LOWER_SOUTH_AABB);
-        lowerEdgeShapes.put(Direction.WEST, EDGE_LOWER_WEST_AABB);
-        outerModelShapes.put(CornerPanelShapeType.LOWER, lowerEdgeShapes);
-
-        final Map<Direction, VoxelShape> centerEdgeShapes = new HashMap<>();
-        centerEdgeShapes.put(Direction.NORTH, EDGE_CENTER_NORTH_AABB);
-        centerEdgeShapes.put(Direction.EAST, EDGE_CENTER_EAST_AABB);
-        centerEdgeShapes.put(Direction.SOUTH, EDGE_CENTER_SOUTH_AABB);
-        centerEdgeShapes.put(Direction.WEST, EDGE_CENTER_WEST_AABB);
-        outerModelShapes.put(CornerPanelShapeType.CENTER, centerEdgeShapes);
-
-        final Map<Direction, VoxelShape> upperEdgeShapes = new HashMap<>();
-        upperEdgeShapes.put(Direction.NORTH, EDGE_UPPER_NORTH_AABB);
-        upperEdgeShapes.put(Direction.EAST, EDGE_UPPER_EAST_AABB);
-        upperEdgeShapes.put(Direction.SOUTH, EDGE_UPPER_SOUTH_AABB);
-        upperEdgeShapes.put(Direction.WEST, EDGE_UPPER_WEST_AABB);
-        outerModelShapes.put(CornerPanelShapeType.UPPER, upperEdgeShapes);
     }
 
     private final List<ItemStack> fillItemGroupCache = Lists.newArrayList();
@@ -138,7 +99,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     public CornerPanelBlock()
     {
         super(Properties.of().mapColor(MapColor.WOOD).strength(3.0F).noOcclusion().isValidSpawn((state, blockGetter, pos, type) -> false));
-        this.registerDefaultState(this.defaultBlockState().setValue(TYPE, CornerPanelType.INNER).setValue(SHAPE_TYPE, CornerPanelShapeType.CENTER).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(SHAPE_TYPE, CornerPanelShapeType.CENTER).setValue(WATERLOGGED, false));
     }
 
     @Override
@@ -174,15 +135,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     {
         super.setPlacedBy(worldIn, pos, state, placer, stack);
 
-        String type = stack.getOrCreateTag().getString("type");
-        if (type.isEmpty())
-        {
-            type = CornerPanelType.INNER.name();
-        }
-
-        worldIn.setBlock(pos,
-          state.setValue(TYPE, CornerPanelType.valueOf(type.toUpperCase())),
-          Block.UPDATE_ALL);
+        worldIn.setBlock(pos, state, Block.UPDATE_ALL);
 
         final CompoundTag textureData = stack.getOrCreateTagElement("textureData");
         final BlockEntity tileEntity = worldIn.getBlockEntity(pos);
@@ -197,7 +150,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     protected void createBlockStateDefinition(final StateDefinition.@NotNull Builder<Block, BlockState> builder)
     {
         super.createBlockStateDefinition(builder);
-        builder.add(FACING, TYPE, SHAPE_TYPE, WATERLOGGED);
+        builder.add(FACING, SHAPE_TYPE, WATERLOGGED);
     }
 
     @NotNull
@@ -229,25 +182,14 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     @NotNull
     public List<ItemStack> getDrops(final @NotNull BlockState state, final @NotNull LootParams.Builder builder)
     {
-        return BlockUtils.getMaterializedItemStack(builder, (s, e) -> {
-            s.getOrCreateTag().putString("type", e.getBlockState().getValue(TYPE).toString().toUpperCase());
-            return s;
-        });
+        return BlockUtils.getMaterializedItemStack(builder);
     }
 
     @NotNull
     @Override
     public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context)
     {
-        if (state.getValue(TYPE).equals(CornerPanelType.INNER))
-        {
-            return innerModelShapes.get(state.getValue(SHAPE_TYPE)).get(state.getValue(FACING));
-        }
-        else if (state.getValue(TYPE).equals(CornerPanelType.OUTER))
-        {
-            return outerModelShapes.get(state.getValue(SHAPE_TYPE)).get(state.getValue(FACING));
-        }
-        return Shapes.empty();
+        return innerModelShapes.get(state.getValue(SHAPE_TYPE)).get(state.getValue(FACING));
     }
 
     @Override
@@ -259,28 +201,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     @Override
     public void fillItemCategory(final @NotNull NonNullList<ItemStack> items)
     {
-        if (!fillItemGroupCache.isEmpty())
-        {
-            items.addAll(fillItemGroupCache);
-            return;
-        }
-
-        try
-        {
-            for (final CornerPanelType cornerPanelType : CornerPanelType.values())
-            {
-                final ItemStack result = new ItemStack(this);
-                result.getOrCreateTag().putString("type", cornerPanelType.name().toUpperCase());
-
-                fillItemGroupCache.add(result);
-            }
-        }
-        catch (IllegalStateException exception)
-        {
-            //Ignored. Thrown during start up.
-        }
-
-        items.addAll(fillItemGroupCache);
+        fillDOItemCategory(this, items, fillItemGroupCache);
     }
 
     @Override
@@ -309,29 +230,22 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     {
         final List<FinishedRecipe> recipes = new ArrayList<>();
 
-        for (final CornerPanelType value : CornerPanelType.values())
+        recipes.add(new FinishedDORecipe()
         {
-            recipes.add(new FinishedDORecipe()
+            @Override
+            public void serializeRecipeData(final @NotNull JsonObject jsonObject)
             {
-                @Override
-                public void serializeRecipeData(final @NotNull JsonObject jsonObject)
-                {
-                    final CompoundTag tag = new CompoundTag();
-                    tag.putString("type", value.toString().toUpperCase());
+                jsonObject.addProperty("block", Objects.requireNonNull(getRegistryName(getBlock())).toString());
+                jsonObject.addProperty("count", COMPONENTS.size() * 4);
+            }
 
-                    jsonObject.addProperty("block", Objects.requireNonNull(getRegistryName(getBlock())).toString());
-                    jsonObject.addProperty("nbt", tag.toString());
-                    jsonObject.addProperty("count", COMPONENTS.size() * 4);
-                }
-
-                @Override
-                @NotNull
-                public ResourceLocation getId()
-                {
-                    return new ResourceLocation(Objects.requireNonNull(getRegistryName(getBlock())) + "_" + value.getSerializedName());
-                }
-            });
-        }
+            @Override
+            @NotNull
+            public ResourceLocation getId()
+            {
+                return Objects.requireNonNull(getRegistryName(getBlock()));
+            }
+        });
 
         return recipes;
     }
@@ -358,10 +272,7 @@ public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock>
     @Override
     public ItemStack getCloneItemStack(final BlockState state, final HitResult target, final BlockGetter world, final BlockPos pos, final Player player)
     {
-        return BlockUtils.getMaterializedItemStack(player, world, pos, (s, e) -> {
-            s.getOrCreateTag().putString("type", e.getBlockState().getValue(TYPE).toString().toUpperCase());
-            return s;
-        });
+        return BlockUtils.getMaterializedItemStack(player, world, pos);
     }
 
     @Override

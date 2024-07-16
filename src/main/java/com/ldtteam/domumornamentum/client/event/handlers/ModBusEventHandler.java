@@ -2,11 +2,7 @@ package com.ldtteam.domumornamentum.client.event.handlers;
 
 import com.ldtteam.domumornamentum.block.IModBlocks;
 import com.ldtteam.domumornamentum.block.decorative.ExtraBlock;
-import com.ldtteam.domumornamentum.block.types.DoorType;
-import com.ldtteam.domumornamentum.block.types.FancyDoorType;
-import com.ldtteam.domumornamentum.block.types.FancyTrapdoorType;
-import com.ldtteam.domumornamentum.block.types.TrapdoorType;
-import com.ldtteam.domumornamentum.block.types.PostType;
+import com.ldtteam.domumornamentum.block.types.*;
 import com.ldtteam.domumornamentum.client.screens.ArchitectsCutterScreen;
 import com.ldtteam.domumornamentum.container.ModContainerTypes;
 import com.ldtteam.domumornamentum.shingles.ShingleHeightType;
@@ -53,6 +49,8 @@ public class ModBusEventHandler
           (itemStack, clientLevel, livingEntity, i) -> handleStaticTrapdoorTypeOverride(itemStack)));
         event.enqueueWork(() -> ItemProperties.register(IModBlocks.getInstance().getPost().asItem(), new ResourceLocation(Constants.POST_MODEL_OVERRIDE),
                 (itemStack, clientLevel, livingEntity, i) -> handlePostTypeOverride(itemStack)));
+        event.enqueueWork(() -> ItemProperties.register(IModBlocks.getInstance().getCornerPanel().asItem(), new ResourceLocation(Constants.CORNER_PANEL_MODEL_OVERRIDE),
+          (itemStack, clientLevel, livingEntity, i) -> handleCornerPanelTypeOverride(itemStack)));
 
         event.enqueueWork(() -> MenuScreens.register(
           ModContainerTypes.ARCHITECTS_CUTTER.get(),
@@ -169,6 +167,7 @@ public class ModBusEventHandler
 
         return doorType.ordinal();
     }
+
     private static float handlePostTypeOverride(ItemStack itemStack)
     {
         if (!itemStack.getOrCreateTag().contains("type"))
@@ -187,5 +186,25 @@ public class ModBusEventHandler
         }
 
         return postType.ordinal();
+    }
+
+    private static float handleCornerPanelTypeOverride(ItemStack itemStack)
+    {
+        if (!itemStack.getOrCreateTag().contains("type"))
+        {
+            return 0f;
+        }
+
+        CornerPanelType cornerPanelType;
+        try
+        {
+            cornerPanelType = CornerPanelType.valueOf(itemStack.getOrCreateTag().getString("type").toUpperCase());
+        }
+        catch (Exception ex)
+        {
+            cornerPanelType = CornerPanelType.INNER;
+        }
+
+        return cornerPanelType.ordinal();
     }
 }

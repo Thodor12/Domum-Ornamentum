@@ -29,6 +29,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,7 +52,7 @@ import java.util.*;
 
 import static net.minecraft.world.level.block.Blocks.OAK_PLANKS;
 
-public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock> implements IMateriallyTexturedBlock, ICachedItemGroupBlock, EntityBlock
+public class CornerPanelBlock extends AbstractBlockDirectional<CornerPanelBlock> implements IMateriallyTexturedBlock, ICachedItemGroupBlock, SimpleWaterloggedBlock, EntityBlock
 {
     public static final EnumProperty<CornerPanelType>      TYPE        = EnumProperty.create("type", CornerPanelType.class);
     public static final EnumProperty<CornerPanelShapeType> SHAPE_TYPE  = EnumProperty.create("shape", CornerPanelShapeType.class);

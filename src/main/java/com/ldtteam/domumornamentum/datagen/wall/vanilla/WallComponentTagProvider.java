@@ -60,7 +60,9 @@ public class WallComponentTagProvider extends BlockTagsProvider
           Blocks.CALCITE,
           Blocks.BONE_BLOCK,
           Blocks.AZALEA_LEAVES,
-          Blocks.FLOWERING_AZALEA_LEAVES
+          Blocks.FLOWERING_AZALEA_LEAVES,
+          Blocks.CHISELED_RED_SANDSTONE,
+          Blocks.CUT_RED_SANDSTONE
         )
           .addTags(
             ModTags.EXTRA_BLOCKS,

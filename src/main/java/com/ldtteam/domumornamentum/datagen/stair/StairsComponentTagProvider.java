@@ -52,6 +52,8 @@ public class StairsComponentTagProvider extends BlockTagsProvider
             Blocks.PACKED_ICE,
             Blocks.SNOW_BLOCK,
             Blocks.CHISELED_STONE_BRICKS,
+            Blocks.CHISELED_RED_SANDSTONE,
+            Blocks.CUT_RED_SANDSTONE,
             Blocks.CRACKED_STONE_BRICKS,
             Blocks.OBSIDIAN,
             Blocks.SMOOTH_STONE,
